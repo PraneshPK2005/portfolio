@@ -41,7 +41,7 @@ import {
   Users,
 } from "lucide-react"
 import { skills, experiences, projects, modalData } from "@/lib/data"
-
+import { AnimatedNumber } from "@/components/ui/animated-number"
 
 export default function Portfolio() {
   const [activeSection, setActiveSection] = useState("home")
@@ -53,6 +53,7 @@ export default function Portfolio() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    subject: "",
     message: "",
   })
 
@@ -102,7 +103,6 @@ export default function Portfolio() {
 
   const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-
     try {
       const response = await fetch("/api/contact", {
         method: "POST",
@@ -121,7 +121,6 @@ export default function Portfolio() {
       console.error(error)
       alert("Error sending message. Please try again later.")
     }
-
   }
 
   const toggleTheme = () => {
@@ -131,8 +130,8 @@ export default function Portfolio() {
   const downloadCV = () => {
     // Create a dummy CV download
     const link = document.createElement("a")
-    link.href = "/public/resume.pdf"
-    link.download = "/public/resume.pdf"
+    link.href = "/placeholder.pdf"
+    link.download = "John_Doe_CV.pdf"
     link.click()
   }
 
@@ -165,9 +164,9 @@ export default function Portfolio() {
           <div className="mb-8">
             <div className="w-32 h-32 mx-auto mb-6 rounded-full border-4 border-green-400 animate-pulse bg-gradient-to-br from-green-400/20 to-green-600/20"></div>
             <h1 className="text-6xl font-bold text-white mb-4 animate-fade-in">
-              Pranesh <span className="text-green-400">Kumar</span>
+              John <span className="text-green-400">Doe</span>
             </h1>
-            <p className="text-xl text-gray-300 mb-8 animate-fade-in-delay">Backend Developer & Gen AI Aspirant</p>
+            <p className="text-xl text-gray-300 mb-8 animate-fade-in-delay">Backend Developer & Gen AI Specialist</p>
           </div>
           <div className="flex items-center justify-center space-x-2">
             <div className="w-3 h-3 bg-green-400 rounded-full animate-bounce"></div>
@@ -185,7 +184,7 @@ export default function Portfolio() {
       {/* Social Media Sidebar */}
       <div className="fixed left-3 top-1/2 transform -translate-y-1/2 z-50 hidden lg:flex flex-col space-y-3">
         <a
-          href="https://github.com/PraneshPK2005"
+          href="https://github.com/username"
           target="_blank"
           rel="noopener noreferrer"
           className={`p-2 ${cardClasses} rounded-full hover:bg-green-500/20 transition-all duration-300 group`}
@@ -195,7 +194,7 @@ export default function Portfolio() {
           <Github className="w-4 h-4 text-green-400 group-hover:scale-110 transition-transform" />
         </a>
         <a
-          href="https://www.linkedin.com/in/pranesh-pk-362760250/"
+          href="https://linkedin.com/in/username"
           target="_blank"
           rel="noopener noreferrer"
           className={`p-2 ${cardClasses} rounded-full hover:bg-green-500/20 transition-all duration-300 group`}
@@ -215,7 +214,7 @@ export default function Portfolio() {
           <Twitter className="w-4 h-4 text-green-400 group-hover:scale-110 transition-transform" />
         </a>
         <a
-          href="praneshvaradharaj@gmail.com"
+          href="mailto:john.doe@example.com"
           className={`p-2 ${cardClasses} rounded-full hover:bg-green-500/20 transition-all duration-300 group`}
           onMouseEnter={() => setIsHovering(true)}
           onMouseLeave={() => setIsHovering(false)}
@@ -344,9 +343,9 @@ export default function Portfolio() {
               className="w-48 h-48 rounded-full mx-auto mb-8 border-4 border-green-400 shadow-2xl shadow-green-400/20"
             />
             <h1 className={`text-5xl md:text-7xl font-bold ${textClasses} mb-6`}>
-              Pranesh <span className="text-green-400">Kumar</span>
+              John <span className="text-green-400">Doe</span>
             </h1>
-            <p className={`text-xl md:text-2xl ${mutedTextClasses} mb-8`}>Backend Developer & Gen AI Aspirant</p>
+            <p className={`text-xl md:text-2xl ${mutedTextClasses} mb-8`}>Backend Developer & Gen AI Specialist</p>
             <p className={`text-2xl ${mutedTextClasses} max-w-2xl mx-auto mb-12 leading-relaxed`}>
               Passionate computer science student specializing in backend development and generative AI. Building
               scalable systems and intelligent applications that solve real-world problems.
@@ -420,7 +419,7 @@ export default function Portfolio() {
                 <CardContent className="p-6 text-center">
                   <Award className="w-12 h-12 mx-auto mb-4 text-green-400 group-hover:scale-110 transition-transform" />
                   <div className="text-3xl font-bold text-green-400 mb-2">
-                    5+
+                    <AnimatedNumber n={6} />
                   </div>
                   <h4 className={`${textClasses} font-semibold`}>Certificates</h4>
                 </CardContent>
@@ -436,7 +435,7 @@ export default function Portfolio() {
                 <CardContent className="p-6 text-center">
                   <Trophy className="w-12 h-12 mx-auto mb-4 text-green-400 group-hover:scale-110 transition-transform" />
                   <div className="text-3xl font-bold text-green-400 mb-2">
-                    5+
+                    <AnimatedNumber n={7} />
                   </div>
                   <h4 className={`${textClasses} font-semibold`}>Hackathons</h4>
                 </CardContent>
@@ -452,7 +451,7 @@ export default function Portfolio() {
                 <CardContent className="p-6 text-center">
                   <Users className="w-12 h-12 mx-auto mb-4 text-green-400 group-hover:scale-110 transition-transform" />
                   <div className="text-3xl font-bold text-green-400 mb-2">
-                    2
+                    <AnimatedNumber n={6} />
                   </div>
                   <h4 className={`${textClasses} font-semibold`}>Clubs</h4>
                 </CardContent>
@@ -468,9 +467,9 @@ export default function Portfolio() {
                 <CardContent className="p-6 text-center">
                   <Coffee className="w-12 h-12 mx-auto mb-4 text-green-400 group-hover:scale-110 transition-transform" />
                   <div className="text-3xl font-bold text-green-400 mb-2">
-                    ∞
+                    <AnimatedNumber n={8} />
                   </div>
-                  <h4 className={`${textClasses} font-semibold`}>Caffeine</h4>
+                  <h4 className={`${textClasses} font-semibold`}>Coffee</h4>
                 </CardContent>
               </Card>
             </div>
@@ -791,8 +790,43 @@ export default function Portfolio() {
           </p>
 
           <div className="grid lg:grid-cols-2 gap-12 mb-16">
+            {/* Code Snippet */}
+            <Card className={`${isDarkMode ? "bg-black/60" : "bg-gray-900/90"} backdrop-blur-sm border-green-500/20`}>
+              <CardHeader>
+                <CardTitle className="text-white text-xl flex items-center">
+                  <Code className="w-5 h-5 mr-2 text-green-400" />
+                  Contact Form Structure
+                </CardTitle>
+                <CardDescription className="text-gray-300">Real-time preview of your form data</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <pre className="text-sm text-green-400 font-mono leading-relaxed overflow-x-auto">
+                  <code>{`// Contact Form Structure
+const contactForm = {
+  name: "${formData.name || "Your Name"}",
+  email: "${formData.email || "your.email@example.com"}",
+  subject: "${formData.subject || "Your Subject"}",
+  message: \`${formData.message || "Your message here..."}\`
+}
+
+// Send message function
+const sendMessage = async () => {
+  const response = await fetch('/api/contact', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(contactForm)
+  })
+
+  return response.json()
+}\``}</code>
+                </pre>
+              </CardContent>
+            </Card>
+
             {/* Contact Form */}
-            <Card className={`${cardClasses} lg:col-span-2`}>
+            <Card className={`${cardClasses}`}>
               <CardHeader>
                 <CardTitle className={`${textClasses} text-2xl`}>Send Message</CardTitle>
                 <CardDescription className={mutedTextClasses}>
@@ -806,6 +840,17 @@ export default function Portfolio() {
                       placeholder="Your Name"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      required
+                      className={`${isDarkMode ? "bg-white/10 border-green-500/30 text-white" : "bg-black/10 border-green-600/30 text-gray-900"} placeholder:text-gray-400 focus:border-green-400`}
+                      onMouseEnter={() => setIsHovering(true)}
+                      onMouseLeave={() => setIsHovering(false)}
+                    />
+                  </div>
+                  <div>
+                    <Input
+                      placeholder="Subject"
+                      value={formData.subject}
+                      onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
                       required
                       className={`${isDarkMode ? "bg-white/10 border-green-500/30 text-white" : "bg-black/10 border-green-600/30 text-gray-900"} placeholder:text-gray-400 focus:border-green-400`}
                       onMouseEnter={() => setIsHovering(true)}
@@ -863,12 +908,12 @@ export default function Portfolio() {
               <div>
                 <h3 className={`${textClasses} font-semibold text-lg mb-1`}>Email</h3>
                 <a
-                  href="mailto:praneshvaradharaj@gmail.com"
+                  href="mailto:john.doe@example.com"
                   className={`${mutedTextClasses} hover:text-green-400 transition-colors`}
                   onMouseEnter={() => setIsHovering(true)}
                   onMouseLeave={() => setIsHovering(false)}
                 >
-                  praneshvaradharaj@gmail.com
+                  john.doe@example.com
                 </a>
               </div>
             </div>
@@ -889,7 +934,7 @@ export default function Portfolio() {
                   onMouseEnter={() => setIsHovering(true)}
                   onMouseLeave={() => setIsHovering(false)}
                 >
-                  +91 80726 57356
+                  +1 (234) 567-8900
                 </a>
               </div>
             </div>
@@ -904,7 +949,7 @@ export default function Portfolio() {
               </div>
               <div>
                 <h3 className={`${textClasses} font-semibold text-lg mb-1`}>Location</h3>
-                <p className={mutedTextClasses}>Chennai, Tamil Nadu</p>
+                <p className={mutedTextClasses}>San Francisco, CA</p>
               </div>
             </div>
           </div>
@@ -914,7 +959,7 @@ export default function Portfolio() {
             <h3 className={`${textClasses} font-semibold text-xl mb-6`}>Follow Me</h3>
             <div className="flex justify-center space-x-6">
               <a
-                href="https://github.com/PraneshPK2005"
+                href="https://github.com/username"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`p-4 ${cardClasses} rounded-xl hover:bg-green-600/20 transition-all duration-300 group hover:border-green-400/40 hover:scale-110`}
@@ -924,7 +969,7 @@ export default function Portfolio() {
                 <Github className="w-6 h-6 text-green-400 group-hover:scale-110 transition-transform" />
               </a>
               <a
-                href="https://www.linkedin.com/in/pranesh-pk-362760250/"
+                href="https://linkedin.com/in/username"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`p-4 ${cardClasses} rounded-xl hover:bg-green-600/20 transition-all duration-300 group hover:border-green-400/40 hover:scale-110`}
@@ -952,12 +997,12 @@ export default function Portfolio() {
       <footer className={`py-8 px-4 border-t ${isDarkMode ? "border-green-500/20" : "border-green-600/30"}`}>
         <div className="max-w-6xl mx-auto text-center">
           <p className={mutedTextClasses}>
-            © 2024 Pranesh Kumar. Built with <span className="text-green-400">Next.js</span> and{" "}
+            © 2024 John Doe. Built with <span className="text-green-400">Next.js</span> and{" "}
             <span className="text-green-400">Tailwind CSS</span>.
           </p>
           <p className={mutedTextClasses}>
             Made with <span className="text-2xl">😵‍💫</span> and lots of{" "}
-            <span className="text-2xl">☕☕☕☕</span>
+            <span className="text-2xl">☕☕☕☕☕☕☕☕☕☕</span>
           </p>
         </div>
       </footer>
@@ -983,14 +1028,14 @@ export default function Portfolio() {
                 <DialogTitle className={`${textClasses} text-3xl capitalize flex items-center gap-3`}>
                   {activeModal === "certificates" && <Award className="w-8 h-8 text-green-400" />}
                   {activeModal === "hackathons" && <Trophy className="w-8 h-8 text-green-400" />}
-                  {activeModal === "caffeine" && <Coffee className="w-8 h-8 text-green-400" />}
+                  {activeModal === "coffee" && <Coffee className="w-8 h-8 text-green-400" />}
                   {activeModal === "clubs" && <Users className="w-8 h-8 text-green-400" />}
                   {activeModal}
                 </DialogTitle>
                 <DialogDescription className={`${mutedTextClasses} text-lg`}>
                   {activeModal === "certificates" && "My professional certifications and achievements"}
                   {activeModal === "hackathons" && "Competition wins and hackathon participation"}
-                  {activeModal === "caffeine" && "My favorite coding fuel and caffeine preferences"}
+                  {activeModal === "coffee" && "My favorite coding fuel and coffee preferences"}
                   {activeModal === "clubs" && "Community involvement and leadership roles"}
                 </DialogDescription>
               </DialogHeader>
