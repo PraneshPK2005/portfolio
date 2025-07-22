@@ -100,11 +100,26 @@ export default function Portfolio() {
     setMobileMenuOpen(false)
   }
 
-  const handleFormSubmit = (e: React.FormEvent) => {
+  const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    const mailtoLink = `mailto:john.doe@example.com?subject=Portfolio Contact from ${formData.name}&body=${formData.message}%0D%0A%0D%0AFrom: ${formData.email}`
-    window.location.href = mailtoLink
-    setFormData({ name: "", email: "", message: "" })
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      })
+      if (response.ok) {
+        alert("Message sent successfully!")
+        setFormData({ name: "", email: "", message: "" })
+      } else {
+        alert("Error sending message. Please try again later.")
+      }
+    } catch (error) {
+      console.error(error)
+      alert("Error sending message. Please try again later.")
+    }
   }
 
   const toggleTheme = () => {
@@ -118,26 +133,6 @@ export default function Portfolio() {
     link.download = "John_Doe_CV.pdf"
     link.click()
   }
-
-  const codeSnippet = `// Contact Form Structure
-const contactForm = {
-  name: "${formData.name || "Your Name"}",
-  email: "${formData.email || "your.email@example.com"}",
-  message: \`${formData.message || "Your message here..."}\`
-}
-
-// Send message function
-const sendMessage = async () => {
-  const response = await fetch('/api/contact', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(contactForm)
-  })
-  
-  return response.json()
-}`
 
   const themeClasses = isDarkMode
     ? "bg-gradient-to-br from-black via-gray-900 to-black text-white"
@@ -794,24 +789,8 @@ const sendMessage = async () => {
           </p>
 
           <div className="grid lg:grid-cols-2 gap-12 mb-16">
-            {/* Code Snippet */}
-            <Card className={`${isDarkMode ? "bg-black/60" : "bg-gray-900/90"} backdrop-blur-sm border-green-500/20`}>
-              <CardHeader>
-                <CardTitle className="text-white text-xl flex items-center">
-                  <Code className="w-5 h-5 mr-2 text-green-400" />
-                  Contact Form Structure
-                </CardTitle>
-                <CardDescription className="text-gray-300">Real-time preview of your form data</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <pre className="text-sm text-green-400 font-mono leading-relaxed overflow-x-auto">
-                  <code>{codeSnippet}</code>
-                </pre>
-              </CardContent>
-            </Card>
-
             {/* Contact Form */}
-            <Card className={`${cardClasses}`}>
+            <Card className={`${cardClasses} lg:col-span-2`}>
               <CardHeader>
                 <CardTitle className={`${textClasses} text-2xl`}>Send Message</CardTitle>
                 <CardDescription className={mutedTextClasses}>
