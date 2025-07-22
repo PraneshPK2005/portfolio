@@ -790,8 +790,43 @@ export default function Portfolio() {
           </p>
 
           <div className="grid lg:grid-cols-2 gap-12 mb-16">
+            {/* Code Snippet */}
+            <Card className={`${isDarkMode ? "bg-black/60" : "bg-gray-900/90"} backdrop-blur-sm border-green-500/20`}>
+              <CardHeader>
+                <CardTitle className="text-white text-xl flex items-center">
+                  <Code className="w-5 h-5 mr-2 text-green-400" />
+                  Contact Form Structure
+                </CardTitle>
+                <CardDescription className="text-gray-300">Real-time preview of your form data</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <pre className="text-sm text-green-400 font-mono leading-relaxed overflow-x-auto">
+                  <code>{`// Contact Form Structure
+const contactForm = {
+  name: "${formData.name || "Your Name"}",
+  email: "${formData.email || "your.email@example.com"}",
+  subject: "${formData.subject || "Your Subject"}",
+  message: \`${formData.message || "Your message here..."}\`
+}
+
+// Send message function
+const sendMessage = async () => {
+  const response = await fetch('/api/contact', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(contactForm)
+  })
+
+  return response.json()
+}\``}</code>
+                </pre>
+              </CardContent>
+            </Card>
+
             {/* Contact Form */}
-            <Card className={`${cardClasses} lg:col-span-2`}>
+            <Card className={`${cardClasses}`}>
               <CardHeader>
                 <CardTitle className={`${textClasses} text-2xl`}>Send Message</CardTitle>
                 <CardDescription className={mutedTextClasses}>
