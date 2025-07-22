@@ -81,109 +81,94 @@ export const skills = {
 
   export const experiences = [
     {
+      title: "SDE Intern",
+      company: "Neoryde",
+      website: "https://www.neoryde.in/",
+      duration: "July 2025 - Present",
+      description:
+        "Developing an platform for Emplyee Transporatation Web Platform using Node.js, React.js, PostgreSQL, and Docker",
+    },
+    {
       title: "Backend Developer Intern",
-      company: "Tech Startup Inc.",
-      website: "https://techstartup.com",
-      duration: "Jun 2024 - Present",
+      company: "Atlanwa",
+      website: "https://www.linkedin.com/company/atlanwa/?originalSubdomain=in",
+      duration: "Nov 2024 - Dec 2024",
       description:
-        "Developed RESTful APIs using Node.js and Express.js, implemented database optimization strategies, and worked on microservices architecture.",
-    },
-    {
-      title: "AI Research Assistant",
-      company: "University AI Lab",
-      website: "https://university.edu/ai-lab",
-      duration: "Jan 2024 - May 2024",
-      description:
-        "Conducted research on natural language processing, implemented machine learning models using PyTorch, and contributed to academic publications.",
-    },
-    {
-      title: "Full Stack Developer",
-      company: "Freelance",
-      website: null,
-      duration: "Sep 2023 - Dec 2023",
-      description:
-        "Built web applications for small businesses, integrated AI chatbots, and deployed applications on cloud platforms.",
-    },
+        "Developed an Inventory Management System using JavaScript, Python, Flask, and MySQL. Implemented real-time inventory tracking and reporting features.",
+    }
   ]
 
   export const projects = [
     {
-      title: "AI-Powered Chat Application",
+      title: "College Website - Velammal Engineering College",
       description:
-        "A real-time chat application with AI-powered responses using OpenAI API, built with Node.js, Socket.io, and React.",
-      technologies: ["Node.js", "OpenAI API", "Socket.io", "React", "MongoDB"],
-      github: "https://github.com/username/ai-chat-app",
+        "A dynamic and comprehensive website developed for Velammal Engineering College to showcase academic programs, campus life, and streamline administrative processes.",
+      technologies: ["Node.js", "React.js", "Express.js", "AWS", "MongoDB"],
+      github: "https://github.com/Siddharth-magesh/VEC-Backend",
       demo: "https://ai-chat-demo.vercel.app",
     },
     {
-      title: "Microservices E-commerce Backend",
+      title: "AgriHub - An AI-Powered Agriculture Platform",
       description:
-        "Scalable e-commerce backend with microservices architecture, API gateway, and containerized deployment.",
-      technologies: ["Python", "FastAPI", "Docker", "PostgreSQL", "Redis", "Kubernetes"],
+        "A centralized digital platform designed to empower farmers with tools for sustainable agriculture and water management. It integrates an AI-powered chatbot for groundwater advisory, image-based crop disease diagnosis using computer vision, a farmer-friendly marketplace, personalized dashboards, and access to financial and informational resources.",
+      technologies: ["Python", "Flask",  "Ollama", "Mongo", "Html", "CSS", "JavaScript", "BeautifulSoup", "OpenCV", "Ultralytics"],
       github: "https://github.com/username/ecommerce-microservices",
       demo: null,
     },
     {
-      title: "Document Analysis AI",
+      title: "Inventory Management System",
       description:
-        "Machine learning model for document classification and information extraction using NLP techniques.",
-      technologies: ["Python", "TensorFlow", "spaCy", "Flask", "PostgreSQL"],
-      github: "https://github.com/username/document-ai",
-      demo: "https://document-ai-demo.herokuapp.com",
+        "A robust and user-friendly application designed to streamline product tracking, stock updates, and order management. It helps businesses maintain real-time inventory visibility, reduce overstocking or shortages, and improve overall supply chain efficiency.",
+      technologies: ["Python", "JavaScript", "HTML", "CSS", "MySQL", "Flask"],
+      github: "https://github.com/PraneshPK2005/Inventory_M_S",
+      demo: null,
     },
     {
-      title: "Real-time Analytics Dashboard",
-      description: "Backend system for processing and visualizing real-time data streams with WebSocket connections.",
+      title: "SentiMatrix - Sentiment Analysis Tool",
+      description: "A multimodal sentiment analysis toolkit that extracts, analyzes, and visualizes emotions and sentiments from text, audio, and images. Sentimatrix integrates local and cloud-based models with web scraping to summarize and interpret public opinions from platforms like YouTube, Reddit, and IMDB.",
       technologies: ["Node.js", "Express.js", "WebSocket", "InfluxDB", "Grafana"],
-      github: "https://github.com/username/analytics-dashboard",
-      demo: null,
+      github: "https://github.com/Siddharth-magesh/Sentimatrix",
+      demo: "https://pypi.org/project/Sentimatrix/",
     },
   ]
 
   export const modalData = {
     certificates: [
       {
-        title: "AWS Certified Solutions Architect",
-        issuer: "Amazon Web Services",
-        date: "2024",
-        description: "Professional level certification for designing distributed systems on AWS",
+        title: "Problem Solving through Programming in C",
+        issuer: "NPTEL",
+        date: "May 2023",
+        description: "Strong foundation in C programming, emphasizing problem-solving, memory management, and logic building.",
         image: "/placeholder.svg?height=200&width=300&text=AWS+Cert",
       },
       {
-        title: "Google Cloud Professional Developer",
-        issuer: "Google Cloud",
-        date: "2023",
-        description: "Certification for building scalable applications on Google Cloud Platform",
+        title: "Programming in JAVA",
+        issuer: "NPTEL",
+        date: "November 2023",
+        description: "Proficient in core and advanced Java concepts, including OOP, exception handling, and multithreading, through NPTEL.",
         image: "/placeholder.svg?height=200&width=300&text=GCP+Cert",
       },
       {
-        title: "MongoDB Certified Developer",
-        issuer: "MongoDB Inc.",
-        date: "2023",
-        description: "Database development and administration certification",
+        title: "Power BI and Tableau",
+        issuer: "Immarticus Learning",
+        date: "March 2024",
+        description: "Certified in Power BI and Tableau, skilled at creating interactive dashboards and transforming data into actionable insights.",
         image: "/placeholder.svg?height=200&width=300&text=MongoDB+Cert",
       },
       {
-        title: "Microsoft Azure Fundamentals",
-        issuer: "Microsoft",
-        date: "2023",
-        description: "Foundational knowledge of cloud services and Microsoft Azure",
+        title: "Python for Data Science",
+        issuer: "NPTEL",
+        date: "April 2024",
+        description: "Certified in Python for Data Science by NPTEL, with expertise in data manipulation and visualization.",
         image: "/placeholder.svg?height=200&width=300&text=Azure+Cert",
       },
       {
-        title: "Docker Certified Associate",
-        issuer: "Docker Inc.",
-        date: "2022",
-        description: "Container orchestration and Docker ecosystem expertise",
+        title: "Deep Learning for Computer Vision",
+        issuer: "NPTEL",
+        date: "November 2024",
+        description: "NPTEL-certified in Deep Learning for Computer Vision, adept at designing and implementing neural network solutions for image analysis.",
         image: "/placeholder.svg?height=200&width=300&text=Docker+Cert",
-      },
-      {
-        title: "Kubernetes Administrator",
-        issuer: "Cloud Native Computing Foundation",
-        date: "2022",
-        description: "Certified Kubernetes Administrator (CKA) for cluster management",
-        image: "/placeholder.svg?height=200&width=300&text=K8s+Cert",
-      },
+      }
     ],
     hackathons: [
       {
@@ -234,7 +219,7 @@ export const skills = {
         date: "2022",
         description: "Developed a fintech solution for micro-investments",
         image: "/placeholder.svg?height=200&width=300&text=AngelHack",
-      },
+      }
     ],
     clubs: [
       {
@@ -250,92 +235,22 @@ export const skills = {
         duration: "2022 - 2024",
         description: "Coordinating research projects and mentoring junior students in machine learning",
         image: "/placeholder.svg?height=200&width=300&text=AI+Club",
-      },
-      {
-        title: "Competitive Programming Club",
-        role: "Member",
-        duration: "2021 - Present",
-        description: "Regular participant in coding competitions and algorithm challenges",
-        image: "/placeholder.svg?height=200&width=300&text=CP+Club",
-      },
-      {
-        title: "Open Source Contributors Society",
-        role: "Core Member",
-        duration: "2022 - Present",
-        description: "Contributing to major open source projects and mentoring new contributors",
-        image: "/placeholder.svg?height=200&width=300&text=OSS+Club",
-      },
-      {
-        title: "Cybersecurity Club",
-        role: "Security Researcher",
-        duration: "2021 - 2023",
-        description: "Participated in CTF competitions and security vulnerability research",
-        image: "/placeholder.svg?height=200&width=300&text=Cyber+Club",
-      },
-      {
-        title: "Robotics and Automation Club",
-        role: "Software Team Lead",
-        duration: "2020 - 2022",
-        description: "Led software development for autonomous robots in competitions",
-        image: "/placeholder.svg?height=200&width=300&text=Robotics",
-      },
+      }
     ],
     coffee: [
       {
-        title: "Ethiopian Yirgacheffe",
-        type: "Single Origin",
-        notes: "Floral, citrusy, bright acidity",
-        description: "My current favorite for morning coding sessions. The bright acidity keeps me alert!",
-        image: "/placeholder.svg?height=200&width=300&text=Ethiopian+Coffee",
-      },
-      {
-        title: "Colombian Supremo",
-        type: "Medium Roast",
-        notes: "Balanced, nutty, chocolate undertones",
-        description: "Perfect for afternoon debugging sessions. Smooth and comforting.",
-        image: "/placeholder.svg?height=200&width=300&text=Colombian+Coffee",
-      },
-      {
-        title: "Blue Mountain Jamaica",
-        type: "Premium",
-        notes: "Mild, sweet, well-balanced",
-        description: "Reserved for those late-night coding marathons and project deadlines.",
-        image: "/placeholder.svg?height=200&width=300&text=Blue+Mountain",
-      },
-      {
-        title: "Guatemala Antigua",
-        type: "Medium-Dark Roast",
-        notes: "Smoky, spicy, full-bodied",
-        description: "Great for intense problem-solving sessions. The bold flavor matches the complexity.",
-        image: "/placeholder.svg?height=200&width=300&text=Guatemala+Coffee",
-      },
-      {
-        title: "Kenya AA",
-        type: "Light-Medium Roast",
-        notes: "Wine-like, blackcurrant, bright",
-        description: "Perfect for creative coding sessions. The unique flavor sparks innovation.",
-        image: "/placeholder.svg?height=200&width=300&text=Kenya+Coffee",
-      },
-      {
-        title: "Brazilian Santos",
-        type: "Dark Roast",
-        notes: "Low acidity, nutty, chocolatey",
-        description: "My go-to for long coding sessions. Smooth and doesn't cause jitters.",
-        image: "/placeholder.svg?height=200&width=300&text=Brazil+Coffee",
-      },
-      {
-        title: "Costa Rican Tarrazú",
-        type: "Medium Roast",
-        notes: "Bright, citrusy, clean finish",
-        description: "Ideal for morning stand-ups and code reviews. Clean taste, clear thinking.",
-        image: "/placeholder.svg?height=200&width=300&text=Costa+Rica+Coffee",
-      },
-      {
-        title: "Hawaiian Kona",
-        type: "Medium Roast",
-        notes: "Smooth, rich, low acidity",
-        description: "Special occasion coffee for celebrating successful deployments and releases.",
-        image: "/placeholder.svg?height=200&width=300&text=Kona+Coffee",
-      },
+    "title": "Black Coffee",
+    "type": "Dark Roast",
+    "notes": "Strong, bitter, no additives",
+    "description": "Pure and powerful. For late-night debugging, deep work, or when you just need to stay laser-focused.",
+    "image": "/placeholder.svg?height=200&width=300&text=Black+Coffee"
+  },
+  {
+    "title": "Red Bull",
+    "type": "Energy Drink",
+    "notes": "Sweet, citrusy, caffeinated",
+    "description": "Gives you wings! A go-to booster during hackathons, night shifts, or energy slumps.",
+    "image": "/placeholder.svg?height=200&width=300&text=Red+Bull"
+  }
     ],
   }

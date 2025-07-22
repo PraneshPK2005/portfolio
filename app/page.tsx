@@ -41,7 +41,7 @@ import {
   Users,
 } from "lucide-react"
 import { skills, experiences, projects, modalData } from "@/lib/data"
-import { AnimatedNumber } from "@/components/ui/animated-number"
+
 
 export default function Portfolio() {
   const [activeSection, setActiveSection] = useState("home")
@@ -102,6 +102,7 @@ export default function Portfolio() {
 
   const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+
     try {
       const response = await fetch("/api/contact", {
         method: "POST",
@@ -120,6 +121,7 @@ export default function Portfolio() {
       console.error(error)
       alert("Error sending message. Please try again later.")
     }
+
   }
 
   const toggleTheme = () => {
@@ -129,8 +131,8 @@ export default function Portfolio() {
   const downloadCV = () => {
     // Create a dummy CV download
     const link = document.createElement("a")
-    link.href = "/placeholder.pdf"
-    link.download = "John_Doe_CV.pdf"
+    link.href = "/public/resume.pdf"
+    link.download = "/public/resume.pdf"
     link.click()
   }
 
@@ -163,9 +165,9 @@ export default function Portfolio() {
           <div className="mb-8">
             <div className="w-32 h-32 mx-auto mb-6 rounded-full border-4 border-green-400 animate-pulse bg-gradient-to-br from-green-400/20 to-green-600/20"></div>
             <h1 className="text-6xl font-bold text-white mb-4 animate-fade-in">
-              John <span className="text-green-400">Doe</span>
+              Pranesh <span className="text-green-400">Kumar</span>
             </h1>
-            <p className="text-xl text-gray-300 mb-8 animate-fade-in-delay">Backend Developer & Gen AI Specialist</p>
+            <p className="text-xl text-gray-300 mb-8 animate-fade-in-delay">Backend Developer & Gen AI Aspirant</p>
           </div>
           <div className="flex items-center justify-center space-x-2">
             <div className="w-3 h-3 bg-green-400 rounded-full animate-bounce"></div>
@@ -183,7 +185,7 @@ export default function Portfolio() {
       {/* Social Media Sidebar */}
       <div className="fixed left-3 top-1/2 transform -translate-y-1/2 z-50 hidden lg:flex flex-col space-y-3">
         <a
-          href="https://github.com/username"
+          href="https://github.com/PraneshPK2005"
           target="_blank"
           rel="noopener noreferrer"
           className={`p-2 ${cardClasses} rounded-full hover:bg-green-500/20 transition-all duration-300 group`}
@@ -193,7 +195,7 @@ export default function Portfolio() {
           <Github className="w-4 h-4 text-green-400 group-hover:scale-110 transition-transform" />
         </a>
         <a
-          href="https://linkedin.com/in/username"
+          href="https://www.linkedin.com/in/pranesh-pk-362760250/"
           target="_blank"
           rel="noopener noreferrer"
           className={`p-2 ${cardClasses} rounded-full hover:bg-green-500/20 transition-all duration-300 group`}
@@ -213,7 +215,7 @@ export default function Portfolio() {
           <Twitter className="w-4 h-4 text-green-400 group-hover:scale-110 transition-transform" />
         </a>
         <a
-          href="mailto:john.doe@example.com"
+          href="praneshvaradharaj@gmail.com"
           className={`p-2 ${cardClasses} rounded-full hover:bg-green-500/20 transition-all duration-300 group`}
           onMouseEnter={() => setIsHovering(true)}
           onMouseLeave={() => setIsHovering(false)}
@@ -342,9 +344,9 @@ export default function Portfolio() {
               className="w-48 h-48 rounded-full mx-auto mb-8 border-4 border-green-400 shadow-2xl shadow-green-400/20"
             />
             <h1 className={`text-5xl md:text-7xl font-bold ${textClasses} mb-6`}>
-              John <span className="text-green-400">Doe</span>
+              Pranesh <span className="text-green-400">Kumar</span>
             </h1>
-            <p className={`text-xl md:text-2xl ${mutedTextClasses} mb-8`}>Backend Developer & Gen AI Specialist</p>
+            <p className={`text-xl md:text-2xl ${mutedTextClasses} mb-8`}>Backend Developer & Gen AI Aspirant</p>
             <p className={`text-2xl ${mutedTextClasses} max-w-2xl mx-auto mb-12 leading-relaxed`}>
               Passionate computer science student specializing in backend development and generative AI. Building
               scalable systems and intelligent applications that solve real-world problems.
@@ -418,7 +420,7 @@ export default function Portfolio() {
                 <CardContent className="p-6 text-center">
                   <Award className="w-12 h-12 mx-auto mb-4 text-green-400 group-hover:scale-110 transition-transform" />
                   <div className="text-3xl font-bold text-green-400 mb-2">
-                    <AnimatedNumber n={6} />
+                    5+
                   </div>
                   <h4 className={`${textClasses} font-semibold`}>Certificates</h4>
                 </CardContent>
@@ -434,7 +436,7 @@ export default function Portfolio() {
                 <CardContent className="p-6 text-center">
                   <Trophy className="w-12 h-12 mx-auto mb-4 text-green-400 group-hover:scale-110 transition-transform" />
                   <div className="text-3xl font-bold text-green-400 mb-2">
-                    <AnimatedNumber n={7} />
+                    5+
                   </div>
                   <h4 className={`${textClasses} font-semibold`}>Hackathons</h4>
                 </CardContent>
@@ -450,7 +452,7 @@ export default function Portfolio() {
                 <CardContent className="p-6 text-center">
                   <Users className="w-12 h-12 mx-auto mb-4 text-green-400 group-hover:scale-110 transition-transform" />
                   <div className="text-3xl font-bold text-green-400 mb-2">
-                    <AnimatedNumber n={6} />
+                    2
                   </div>
                   <h4 className={`${textClasses} font-semibold`}>Clubs</h4>
                 </CardContent>
@@ -466,9 +468,9 @@ export default function Portfolio() {
                 <CardContent className="p-6 text-center">
                   <Coffee className="w-12 h-12 mx-auto mb-4 text-green-400 group-hover:scale-110 transition-transform" />
                   <div className="text-3xl font-bold text-green-400 mb-2">
-                    <AnimatedNumber n={8} />
+                    ∞
                   </div>
-                  <h4 className={`${textClasses} font-semibold`}>Coffee</h4>
+                  <h4 className={`${textClasses} font-semibold`}>Caffeine</h4>
                 </CardContent>
               </Card>
             </div>
@@ -861,12 +863,12 @@ export default function Portfolio() {
               <div>
                 <h3 className={`${textClasses} font-semibold text-lg mb-1`}>Email</h3>
                 <a
-                  href="mailto:john.doe@example.com"
+                  href="mailto:praneshvaradharaj@gmail.com"
                   className={`${mutedTextClasses} hover:text-green-400 transition-colors`}
                   onMouseEnter={() => setIsHovering(true)}
                   onMouseLeave={() => setIsHovering(false)}
                 >
-                  john.doe@example.com
+                  praneshvaradharaj@gmail.com
                 </a>
               </div>
             </div>
@@ -887,7 +889,7 @@ export default function Portfolio() {
                   onMouseEnter={() => setIsHovering(true)}
                   onMouseLeave={() => setIsHovering(false)}
                 >
-                  +1 (234) 567-8900
+                  +91 80726 57356
                 </a>
               </div>
             </div>
@@ -902,7 +904,7 @@ export default function Portfolio() {
               </div>
               <div>
                 <h3 className={`${textClasses} font-semibold text-lg mb-1`}>Location</h3>
-                <p className={mutedTextClasses}>San Francisco, CA</p>
+                <p className={mutedTextClasses}>Chennai, Tamil Nadu</p>
               </div>
             </div>
           </div>
@@ -912,7 +914,7 @@ export default function Portfolio() {
             <h3 className={`${textClasses} font-semibold text-xl mb-6`}>Follow Me</h3>
             <div className="flex justify-center space-x-6">
               <a
-                href="https://github.com/username"
+                href="https://github.com/PraneshPK2005"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`p-4 ${cardClasses} rounded-xl hover:bg-green-600/20 transition-all duration-300 group hover:border-green-400/40 hover:scale-110`}
@@ -922,7 +924,7 @@ export default function Portfolio() {
                 <Github className="w-6 h-6 text-green-400 group-hover:scale-110 transition-transform" />
               </a>
               <a
-                href="https://linkedin.com/in/username"
+                href="https://www.linkedin.com/in/pranesh-pk-362760250/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`p-4 ${cardClasses} rounded-xl hover:bg-green-600/20 transition-all duration-300 group hover:border-green-400/40 hover:scale-110`}
@@ -950,12 +952,12 @@ export default function Portfolio() {
       <footer className={`py-8 px-4 border-t ${isDarkMode ? "border-green-500/20" : "border-green-600/30"}`}>
         <div className="max-w-6xl mx-auto text-center">
           <p className={mutedTextClasses}>
-            © 2024 John Doe. Built with <span className="text-green-400">Next.js</span> and{" "}
+            © 2024 Pranesh Kumar. Built with <span className="text-green-400">Next.js</span> and{" "}
             <span className="text-green-400">Tailwind CSS</span>.
           </p>
           <p className={mutedTextClasses}>
             Made with <span className="text-2xl">😵‍💫</span> and lots of{" "}
-            <span className="text-2xl">☕☕☕☕☕☕☕☕☕☕</span>
+            <span className="text-2xl">☕☕☕☕</span>
           </p>
         </div>
       </footer>
@@ -981,14 +983,14 @@ export default function Portfolio() {
                 <DialogTitle className={`${textClasses} text-3xl capitalize flex items-center gap-3`}>
                   {activeModal === "certificates" && <Award className="w-8 h-8 text-green-400" />}
                   {activeModal === "hackathons" && <Trophy className="w-8 h-8 text-green-400" />}
-                  {activeModal === "coffee" && <Coffee className="w-8 h-8 text-green-400" />}
+                  {activeModal === "caffeine" && <Coffee className="w-8 h-8 text-green-400" />}
                   {activeModal === "clubs" && <Users className="w-8 h-8 text-green-400" />}
                   {activeModal}
                 </DialogTitle>
                 <DialogDescription className={`${mutedTextClasses} text-lg`}>
                   {activeModal === "certificates" && "My professional certifications and achievements"}
                   {activeModal === "hackathons" && "Competition wins and hackathon participation"}
-                  {activeModal === "coffee" && "My favorite coding fuel and coffee preferences"}
+                  {activeModal === "caffeine" && "My favorite coding fuel and caffeine preferences"}
                   {activeModal === "clubs" && "Community involvement and leadership roles"}
                 </DialogDescription>
               </DialogHeader>
