@@ -40,6 +40,8 @@ import {
   Coffee,
   Users,
 } from "lucide-react"
+import { skills, experiences, projects, modalData } from "@/lib/data"
+import { AnimatedNumber } from "@/components/ui/animated-number"
 
 export default function Portfolio() {
   const [activeSection, setActiveSection] = useState("home")
@@ -47,23 +49,12 @@ export default function Portfolio() {
   const [isDarkMode, setIsDarkMode] = useState(true)
   const [isLoading, setIsLoading] = useState(true)
   const [activeModal, setActiveModal] = useState<string | null>(null)
-  const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 })
   const [isHovering, setIsHovering] = useState(false)
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: "",
   })
-
-  // Cursor tracking
-  useEffect(() => {
-    const updateCursor = (e: MouseEvent) => {
-      setCursorPosition({ x: e.clientX, y: e.clientY })
-    }
-
-    window.addEventListener("mousemove", updateCursor)
-    return () => window.removeEventListener("mousemove", updateCursor)
-  }, [])
 
   // Section observer for navigation
   useEffect(() => {
@@ -126,348 +117,6 @@ export default function Portfolio() {
     link.href = "/placeholder.pdf"
     link.download = "John_Doe_CV.pdf"
     link.click()
-  }
-
-  const skills = {
-    backend: [
-      { name: "Node.js", logo: "/placeholder.svg?height=40&width=40&text=Node", color: "from-green-400 to-green-600" },
-      { name: "Python", logo: "/placeholder.svg?height=40&width=40&text=Python", color: "from-blue-400 to-blue-600" },
-      { name: "Java", logo: "/placeholder.svg?height=40&width=40&text=Java", color: "from-orange-400 to-red-600" },
-      {
-        name: "Express.js",
-        logo: "/placeholder.svg?height=40&width=40&text=Express",
-        color: "from-gray-400 to-gray-600",
-      },
-      { name: "FastAPI", logo: "/placeholder.svg?height=40&width=40&text=FastAPI", color: "from-teal-400 to-teal-600" },
-      {
-        name: "Spring Boot",
-        logo: "/placeholder.svg?height=40&width=40&text=Spring",
-        color: "from-green-400 to-green-600",
-      },
-      {
-        name: "PostgreSQL",
-        logo: "/placeholder.svg?height=40&width=40&text=PostgreSQL",
-        color: "from-blue-400 to-indigo-600",
-      },
-      {
-        name: "MongoDB",
-        logo: "/placeholder.svg?height=40&width=40&text=MongoDB",
-        color: "from-green-400 to-green-600",
-      },
-      { name: "Redis", logo: "/placeholder.svg?height=40&width=40&text=Redis", color: "from-red-400 to-red-600" },
-      { name: "Docker", logo: "/placeholder.svg?height=40&width=40&text=Docker", color: "from-blue-400 to-blue-600" },
-    ],
-    ai: [
-      {
-        name: "TensorFlow",
-        logo: "/placeholder.svg?height=40&width=40&text=TF",
-        color: "from-orange-400 to-orange-600",
-      },
-      {
-        name: "PyTorch",
-        logo: "/placeholder.svg?height=40&width=40&text=PyTorch",
-        color: "from-red-400 to-orange-600",
-      },
-      { name: "OpenAI", logo: "/placeholder.svg?height=40&width=40&text=OpenAI", color: "from-green-400 to-teal-600" },
-      {
-        name: "Langchain",
-        logo: "/placeholder.svg?height=40&width=40&text=LC",
-        color: "from-purple-400 to-purple-600",
-      },
-      {
-        name: "Hugging Face",
-        logo: "/placeholder.svg?height=40&width=40&text=HF",
-        color: "from-yellow-400 to-orange-600",
-      },
-      {
-        name: "Scikit-learn",
-        logo: "/placeholder.svg?height=40&width=40&text=sklearn",
-        color: "from-blue-400 to-blue-600",
-      },
-      {
-        name: "Pandas",
-        logo: "/placeholder.svg?height=40&width=40&text=Pandas",
-        color: "from-indigo-400 to-purple-600",
-      },
-      { name: "NumPy", logo: "/placeholder.svg?height=40&width=40&text=NumPy", color: "from-blue-400 to-indigo-600" },
-    ],
-    tools: [
-      { name: "Git", logo: "/placeholder.svg?height=40&width=40&text=Git", color: "from-orange-400 to-red-600" },
-      { name: "AWS", logo: "/placeholder.svg?height=40&width=40&text=AWS", color: "from-orange-400 to-yellow-600" },
-      { name: "Linux", logo: "/placeholder.svg?height=40&width=40&text=Linux", color: "from-yellow-400 to-orange-600" },
-      { name: "Kubernetes", logo: "/placeholder.svg?height=40&width=40&text=K8s", color: "from-blue-400 to-blue-600" },
-      {
-        name: "GraphQL",
-        logo: "/placeholder.svg?height=40&width=40&text=GraphQL",
-        color: "from-pink-400 to-purple-600",
-      },
-      {
-        name: "Postman",
-        logo: "/placeholder.svg?height=40&width=40&text=Postman",
-        color: "from-orange-400 to-red-600",
-      },
-    ],
-  }
-
-  const experiences = [
-    {
-      title: "Backend Developer Intern",
-      company: "Tech Startup Inc.",
-      website: "https://techstartup.com",
-      duration: "Jun 2024 - Present",
-      description:
-        "Developed RESTful APIs using Node.js and Express.js, implemented database optimization strategies, and worked on microservices architecture.",
-    },
-    {
-      title: "AI Research Assistant",
-      company: "University AI Lab",
-      website: "https://university.edu/ai-lab",
-      duration: "Jan 2024 - May 2024",
-      description:
-        "Conducted research on natural language processing, implemented machine learning models using PyTorch, and contributed to academic publications.",
-    },
-    {
-      title: "Full Stack Developer",
-      company: "Freelance",
-      website: null,
-      duration: "Sep 2023 - Dec 2023",
-      description:
-        "Built web applications for small businesses, integrated AI chatbots, and deployed applications on cloud platforms.",
-    },
-  ]
-
-  const projects = [
-    {
-      title: "AI-Powered Chat Application",
-      description:
-        "A real-time chat application with AI-powered responses using OpenAI API, built with Node.js, Socket.io, and React.",
-      technologies: ["Node.js", "OpenAI API", "Socket.io", "React", "MongoDB"],
-      github: "https://github.com/username/ai-chat-app",
-      demo: "https://ai-chat-demo.vercel.app",
-    },
-    {
-      title: "Microservices E-commerce Backend",
-      description:
-        "Scalable e-commerce backend with microservices architecture, API gateway, and containerized deployment.",
-      technologies: ["Python", "FastAPI", "Docker", "PostgreSQL", "Redis", "Kubernetes"],
-      github: "https://github.com/username/ecommerce-microservices",
-      demo: null,
-    },
-    {
-      title: "Document Analysis AI",
-      description:
-        "Machine learning model for document classification and information extraction using NLP techniques.",
-      technologies: ["Python", "TensorFlow", "spaCy", "Flask", "PostgreSQL"],
-      github: "https://github.com/username/document-ai",
-      demo: "https://document-ai-demo.herokuapp.com",
-    },
-    {
-      title: "Real-time Analytics Dashboard",
-      description: "Backend system for processing and visualizing real-time data streams with WebSocket connections.",
-      technologies: ["Node.js", "Express.js", "WebSocket", "InfluxDB", "Grafana"],
-      github: "https://github.com/username/analytics-dashboard",
-      demo: null,
-    },
-  ]
-
-  const modalData = {
-    certificates: [
-      {
-        title: "AWS Certified Solutions Architect",
-        issuer: "Amazon Web Services",
-        date: "2024",
-        description: "Professional level certification for designing distributed systems on AWS",
-        image: "/placeholder.svg?height=200&width=300&text=AWS+Cert",
-      },
-      {
-        title: "Google Cloud Professional Developer",
-        issuer: "Google Cloud",
-        date: "2023",
-        description: "Certification for building scalable applications on Google Cloud Platform",
-        image: "/placeholder.svg?height=200&width=300&text=GCP+Cert",
-      },
-      {
-        title: "MongoDB Certified Developer",
-        issuer: "MongoDB Inc.",
-        date: "2023",
-        description: "Database development and administration certification",
-        image: "/placeholder.svg?height=200&width=300&text=MongoDB+Cert",
-      },
-      {
-        title: "Microsoft Azure Fundamentals",
-        issuer: "Microsoft",
-        date: "2023",
-        description: "Foundational knowledge of cloud services and Microsoft Azure",
-        image: "/placeholder.svg?height=200&width=300&text=Azure+Cert",
-      },
-      {
-        title: "Docker Certified Associate",
-        issuer: "Docker Inc.",
-        date: "2022",
-        description: "Container orchestration and Docker ecosystem expertise",
-        image: "/placeholder.svg?height=200&width=300&text=Docker+Cert",
-      },
-      {
-        title: "Kubernetes Administrator",
-        issuer: "Cloud Native Computing Foundation",
-        date: "2022",
-        description: "Certified Kubernetes Administrator (CKA) for cluster management",
-        image: "/placeholder.svg?height=200&width=300&text=K8s+Cert",
-      },
-    ],
-    hackathons: [
-      {
-        title: "TechCrunch Disrupt Hackathon",
-        position: "1st Place",
-        date: "2024",
-        description: "Built an AI-powered sustainability tracker that won first place among 200+ teams",
-        image: "/placeholder.svg?height=200&width=300&text=TechCrunch+Win",
-      },
-      {
-        title: "Google Developer Student Club Hackathon",
-        position: "2nd Place",
-        date: "2023",
-        description: "Developed a machine learning model for predicting crop yields",
-        image: "/placeholder.svg?height=200&width=300&text=GDSC+Hackathon",
-      },
-      {
-        title: "Meta AI Hackathon",
-        position: "Top 10",
-        date: "2023",
-        description: "Created an innovative chatbot using Meta's latest AI technologies",
-        image: "/placeholder.svg?height=200&width=300&text=Meta+AI",
-      },
-      {
-        title: "NASA Space Apps Challenge",
-        position: "Regional Winner",
-        date: "2023",
-        description: "Developed a space debris tracking system using satellite data",
-        image: "/placeholder.svg?height=200&width=300&text=NASA+Space",
-      },
-      {
-        title: "Microsoft Imagine Cup",
-        position: "3rd Place",
-        date: "2022",
-        description: "Created an accessibility app for visually impaired users",
-        image: "/placeholder.svg?height=200&width=300&text=MS+Imagine",
-      },
-      {
-        title: "GitHub Global Campus Hackathon",
-        position: "Top 20",
-        date: "2022",
-        description: "Built a collaborative coding platform with real-time features",
-        image: "/placeholder.svg?height=200&width=300&text=GitHub+Hack",
-      },
-      {
-        title: "AngelHack Global",
-        position: "Finalist",
-        date: "2022",
-        description: "Developed a fintech solution for micro-investments",
-        image: "/placeholder.svg?height=200&width=300&text=AngelHack",
-      },
-    ],
-    clubs: [
-      {
-        title: "Google Developer Student Club",
-        role: "Technical Lead",
-        duration: "2023 - Present",
-        description: "Leading workshops on cloud technologies and organizing hackathons for 200+ members",
-        image: "/placeholder.svg?height=200&width=300&text=GDSC+Lead",
-      },
-      {
-        title: "AI/ML Research Club",
-        role: "Vice President",
-        duration: "2022 - 2024",
-        description: "Coordinating research projects and mentoring junior students in machine learning",
-        image: "/placeholder.svg?height=200&width=300&text=AI+Club",
-      },
-      {
-        title: "Competitive Programming Club",
-        role: "Member",
-        duration: "2021 - Present",
-        description: "Regular participant in coding competitions and algorithm challenges",
-        image: "/placeholder.svg?height=200&width=300&text=CP+Club",
-      },
-      {
-        title: "Open Source Contributors Society",
-        role: "Core Member",
-        duration: "2022 - Present",
-        description: "Contributing to major open source projects and mentoring new contributors",
-        image: "/placeholder.svg?height=200&width=300&text=OSS+Club",
-      },
-      {
-        title: "Cybersecurity Club",
-        role: "Security Researcher",
-        duration: "2021 - 2023",
-        description: "Participated in CTF competitions and security vulnerability research",
-        image: "/placeholder.svg?height=200&width=300&text=Cyber+Club",
-      },
-      {
-        title: "Robotics and Automation Club",
-        role: "Software Team Lead",
-        duration: "2020 - 2022",
-        description: "Led software development for autonomous robots in competitions",
-        image: "/placeholder.svg?height=200&width=300&text=Robotics",
-      },
-    ],
-    coffee: [
-      {
-        title: "Ethiopian Yirgacheffe",
-        type: "Single Origin",
-        notes: "Floral, citrusy, bright acidity",
-        description: "My current favorite for morning coding sessions. The bright acidity keeps me alert!",
-        image: "/placeholder.svg?height=200&width=300&text=Ethiopian+Coffee",
-      },
-      {
-        title: "Colombian Supremo",
-        type: "Medium Roast",
-        notes: "Balanced, nutty, chocolate undertones",
-        description: "Perfect for afternoon debugging sessions. Smooth and comforting.",
-        image: "/placeholder.svg?height=200&width=300&text=Colombian+Coffee",
-      },
-      {
-        title: "Blue Mountain Jamaica",
-        type: "Premium",
-        notes: "Mild, sweet, well-balanced",
-        description: "Reserved for those late-night coding marathons and project deadlines.",
-        image: "/placeholder.svg?height=200&width=300&text=Blue+Mountain",
-      },
-      {
-        title: "Guatemala Antigua",
-        type: "Medium-Dark Roast",
-        notes: "Smoky, spicy, full-bodied",
-        description: "Great for intense problem-solving sessions. The bold flavor matches the complexity.",
-        image: "/placeholder.svg?height=200&width=300&text=Guatemala+Coffee",
-      },
-      {
-        title: "Kenya AA",
-        type: "Light-Medium Roast",
-        notes: "Wine-like, blackcurrant, bright",
-        description: "Perfect for creative coding sessions. The unique flavor sparks innovation.",
-        image: "/placeholder.svg?height=200&width=300&text=Kenya+Coffee",
-      },
-      {
-        title: "Brazilian Santos",
-        type: "Dark Roast",
-        notes: "Low acidity, nutty, chocolatey",
-        description: "My go-to for long coding sessions. Smooth and doesn't cause jitters.",
-        image: "/placeholder.svg?height=200&width=300&text=Brazil+Coffee",
-      },
-      {
-        title: "Costa Rican Tarrazú",
-        type: "Medium Roast",
-        notes: "Bright, citrusy, clean finish",
-        description: "Ideal for morning stand-ups and code reviews. Clean taste, clear thinking.",
-        image: "/placeholder.svg?height=200&width=300&text=Costa+Rica+Coffee",
-      },
-      {
-        title: "Hawaiian Kona",
-        type: "Medium Roast",
-        notes: "Smooth, rich, low acidity",
-        description: "Special occasion coffee for celebrating successful deployments and releases.",
-        image: "/placeholder.svg?height=200&width=300&text=Kona+Coffee",
-      },
-    ],
   }
 
   const codeSnippet = `// Contact Form Structure
@@ -535,43 +184,6 @@ const sendMessage = async () => {
 
   return (
     <div className={`min-h-screen ${themeClasses} transition-all duration-500 relative overflow-x-hidden`}>
-      {/* Enhanced Dynamic Spotlight Cursor */}
-      <div
-        className="fixed pointer-events-none z-[9999] transition-opacity duration-300"
-        style={{
-          left: cursorPosition.x - 500,
-          top: cursorPosition.y - 500,
-          opacity: isHovering ? 0.4 : 0.2,
-        }}
-      >
-        <div className="w-[1000px] h-[1000px] bg-gradient-radial from-green-400/40 via-green-500/30 via-green-600/20 to-transparent rounded-full blur-3xl animate-pulse-slow"></div>
-      </div>
-
-      {/* Secondary larger glow */}
-      <div
-        className="fixed pointer-events-none z-[9998] transition-all duration-200"
-        style={{
-          left: cursorPosition.x - 300,
-          top: cursorPosition.y - 300,
-          opacity: isHovering ? 0.5 : 0.3,
-        }}
-      >
-        <div className="w-[600px] h-[600px] bg-gradient-radial from-green-300/50 via-green-400/30 via-green-500/20 to-transparent rounded-full blur-2xl"></div>
-      </div>
-
-      {/* Core bright spotlight */}
-      <div
-        className="fixed pointer-events-none z-[10000] transition-all duration-100"
-        style={{
-          left: cursorPosition.x - 100,
-          top: cursorPosition.y - 100,
-          opacity: isHovering ? 0.6 : 0.4,
-        }}
-      >
-        <div className="w-[200px] h-[200px] bg-gradient-radial from-green-200/60 via-green-300/40 to-transparent rounded-full blur-xl"></div>
-      </div>
-
-      {/* Remove this entire section */}
 
       {/* Social Media Sidebar */}
       <div className="fixed left-3 top-1/2 transform -translate-y-1/2 z-50 hidden lg:flex flex-col space-y-3">
@@ -738,7 +350,7 @@ const sendMessage = async () => {
               John <span className="text-green-400">Doe</span>
             </h1>
             <p className={`text-xl md:text-2xl ${mutedTextClasses} mb-8`}>Backend Developer & Gen AI Specialist</p>
-            <p className={`text-lg ${mutedTextClasses} max-w-2xl mx-auto mb-12 leading-relaxed`}>
+            <p className={`text-2xl ${mutedTextClasses} max-w-2xl mx-auto mb-12 leading-relaxed`}>
               Passionate computer science student specializing in backend development and generative AI. Building
               scalable systems and intelligent applications that solve real-world problems.
             </p>
@@ -778,12 +390,12 @@ const sendMessage = async () => {
           <div className="grid md:grid-cols-2 gap-12 mb-16">
             <div>
               <h3 className={`text-2xl font-bold ${textClasses} mb-6`}>Who I Am</h3>
-              <p className={`${mutedTextClasses} leading-relaxed mb-6`}>
+              <p className={`${mutedTextClasses} text-xl leading-relaxed mb-6`}>
                 I'm a passionate computer science student with a deep love for backend development and artificial
                 intelligence. My journey in tech started with curiosity about how systems work behind the scenes, and it
                 has evolved into a mission to build scalable, intelligent applications that make a real difference.
               </p>
-              <p className={`${mutedTextClasses} leading-relaxed mb-8`}>
+              <p className={`${mutedTextClasses} text-xl leading-relaxed mb-8`}>
                 When I'm not coding, you'll find me exploring new coffee blends, participating in hackathons, or
                 contributing to various tech communities. I believe in continuous learning and sharing knowledge with
                 others.
@@ -810,7 +422,9 @@ const sendMessage = async () => {
               >
                 <CardContent className="p-6 text-center">
                   <Award className="w-12 h-12 mx-auto mb-4 text-green-400 group-hover:scale-110 transition-transform" />
-                  <div className="text-3xl font-bold text-green-400 mb-2">6</div>
+                  <div className="text-3xl font-bold text-green-400 mb-2">
+                    <AnimatedNumber n={6} />
+                  </div>
                   <h4 className={`${textClasses} font-semibold`}>Certificates</h4>
                 </CardContent>
               </Card>
@@ -824,7 +438,9 @@ const sendMessage = async () => {
               >
                 <CardContent className="p-6 text-center">
                   <Trophy className="w-12 h-12 mx-auto mb-4 text-green-400 group-hover:scale-110 transition-transform" />
-                  <div className="text-3xl font-bold text-green-400 mb-2">7</div>
+                  <div className="text-3xl font-bold text-green-400 mb-2">
+                    <AnimatedNumber n={7} />
+                  </div>
                   <h4 className={`${textClasses} font-semibold`}>Hackathons</h4>
                 </CardContent>
               </Card>
@@ -838,7 +454,9 @@ const sendMessage = async () => {
               >
                 <CardContent className="p-6 text-center">
                   <Users className="w-12 h-12 mx-auto mb-4 text-green-400 group-hover:scale-110 transition-transform" />
-                  <div className="text-3xl font-bold text-green-400 mb-2">6</div>
+                  <div className="text-3xl font-bold text-green-400 mb-2">
+                    <AnimatedNumber n={6} />
+                  </div>
                   <h4 className={`${textClasses} font-semibold`}>Clubs</h4>
                 </CardContent>
               </Card>
@@ -852,7 +470,9 @@ const sendMessage = async () => {
               >
                 <CardContent className="p-6 text-center">
                   <Coffee className="w-12 h-12 mx-auto mb-4 text-green-400 group-hover:scale-110 transition-transform" />
-                  <div className="text-3xl font-bold text-green-400 mb-2">8</div>
+                  <div className="text-3xl font-bold text-green-400 mb-2">
+                    <AnimatedNumber n={8} />
+                  </div>
                   <h4 className={`${textClasses} font-semibold`}>Coffee</h4>
                 </CardContent>
               </Card>
@@ -1012,7 +632,7 @@ const sendMessage = async () => {
                       {project.title}
                     </CardTitle>
                     <CardDescription
-                      className={`${mutedTextClasses} leading-relaxed ${index === 0 || index === 3 ? "text-base" : "text-sm"}`}
+                      className={`${mutedTextClasses} leading-relaxed ${index === 0 || index === 3 ? "text-lg" : "text-base"}`}
                     >
                       {project.description}
                     </CardDescription>
@@ -1148,7 +768,7 @@ const sendMessage = async () => {
                         </div>
                       </CardHeader>
                       <CardContent>
-                        <p className={`${mutedTextClasses} leading-relaxed`}>{exp.description}</p>
+                        <p className={`${mutedTextClasses} text-lg leading-relaxed`}>{exp.description}</p>
                       </CardContent>
                     </Card>
                   </div>
