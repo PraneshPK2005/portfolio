@@ -671,20 +671,21 @@ const sendMessage = async () => {
                         />
                         View Code
                       </a>
-                      {/* Future Demo Feature - Commented for now */}
-                      {/* {project.demo && (
+                      {project.demo && (index === 0 || index === 3) && (
                         <a
                           href={project.demo}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className={`flex items-center text-green-400 hover:text-green-300 transition-colors font-medium ${index === 0 ? 'text-base' : 'text-sm'} group/link`}
+                          className={`flex items-center text-green-400 hover:text-green-300 transition-colors font-medium ${index === 0 || index === 3 ? "text-base" : "text-sm"} group/link`}
                           onMouseEnter={() => setIsHovering(true)}
                           onMouseLeave={() => setIsHovering(false)}
                         >
-                          <ExternalLink className={`${index === 0 ? 'w-5 h-5' : 'w-4 h-4'} mr-1.5 group-hover/link:scale-110 transition-transform`} />
+                          <ExternalLink
+                            className={`${index === 0 || index === 3 ? "w-5 h-5" : "w-4 h-4"} mr-1.5 group-hover/link:scale-110 transition-transform`}
+                          />
                           Live Demo
                         </a>
-                      )} */}
+                      )}
                     </div>
                   </CardContent>
                 </div>
