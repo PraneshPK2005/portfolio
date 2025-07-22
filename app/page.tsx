@@ -41,7 +41,7 @@ import {
   Users,
 } from "lucide-react"
 import { skills, experiences, projects, modalData } from "@/lib/data"
-import { AnimatedNumber } from "@/components/ui/animated-number"
+
 
 export default function Portfolio() {
   const [activeSection, setActiveSection] = useState("home")
@@ -423,7 +423,7 @@ const sendMessage = async () => {
                 <CardContent className="p-6 text-center">
                   <Award className="w-12 h-12 mx-auto mb-4 text-green-400 group-hover:scale-110 transition-transform" />
                   <div className="text-3xl font-bold text-green-400 mb-2">
-                    <AnimatedNumber n={6} />
+                    5+
                   </div>
                   <h4 className={`${textClasses} font-semibold`}>Certificates</h4>
                 </CardContent>
@@ -439,7 +439,7 @@ const sendMessage = async () => {
                 <CardContent className="p-6 text-center">
                   <Trophy className="w-12 h-12 mx-auto mb-4 text-green-400 group-hover:scale-110 transition-transform" />
                   <div className="text-3xl font-bold text-green-400 mb-2">
-                    <AnimatedNumber n={7} />
+                    5+
                   </div>
                   <h4 className={`${textClasses} font-semibold`}>Hackathons</h4>
                 </CardContent>
@@ -455,7 +455,7 @@ const sendMessage = async () => {
                 <CardContent className="p-6 text-center">
                   <Users className="w-12 h-12 mx-auto mb-4 text-green-400 group-hover:scale-110 transition-transform" />
                   <div className="text-3xl font-bold text-green-400 mb-2">
-                    <AnimatedNumber n={6} />
+                    2
                   </div>
                   <h4 className={`${textClasses} font-semibold`}>Clubs</h4>
                 </CardContent>
@@ -471,7 +471,7 @@ const sendMessage = async () => {
                 <CardContent className="p-6 text-center">
                   <Coffee className="w-12 h-12 mx-auto mb-4 text-green-400 group-hover:scale-110 transition-transform" />
                   <div className="text-3xl font-bold text-green-400 mb-2">
-                    <AnimatedNumber n={8} />
+                    ∞
                   </div>
                   <h4 className={`${textClasses} font-semibold`}>Caffeine</h4>
                 </CardContent>
@@ -1002,14 +1002,14 @@ const sendMessage = async () => {
                 <DialogTitle className={`${textClasses} text-3xl capitalize flex items-center gap-3`}>
                   {activeModal === "certificates" && <Award className="w-8 h-8 text-green-400" />}
                   {activeModal === "hackathons" && <Trophy className="w-8 h-8 text-green-400" />}
-                  {activeModal === "coffee" && <Coffee className="w-8 h-8 text-green-400" />}
+                  {activeModal === "caffeine" && <Coffee className="w-8 h-8 text-green-400" />}
                   {activeModal === "clubs" && <Users className="w-8 h-8 text-green-400" />}
                   {activeModal}
                 </DialogTitle>
                 <DialogDescription className={`${mutedTextClasses} text-lg`}>
                   {activeModal === "certificates" && "My professional certifications and achievements"}
                   {activeModal === "hackathons" && "Competition wins and hackathon participation"}
-                  {activeModal === "coffee" && "My favorite coding fuel and coffee preferences"}
+                  {activeModal === "caffeine" && "My favorite coding fuel and caffeine preferences"}
                   {activeModal === "clubs" && "Community involvement and leadership roles"}
                 </DialogDescription>
               </DialogHeader>

@@ -111,7 +111,7 @@ export const skills = {
       title: "AgriHub - An AI-Powered Agriculture Platform",
       description:
         "A centralized digital platform designed to empower farmers with tools for sustainable agriculture and water management. It integrates an AI-powered chatbot for groundwater advisory, image-based crop disease diagnosis using computer vision, a farmer-friendly marketplace, personalized dashboards, and access to financial and informational resources.",
-      technologies: ["Python", "FastAPI", "Docker", "PostgreSQL", "Redis", "Kubernetes"],
+      technologies: ["Python", "Flask",  "Ollama", "Mongo", "Html", "CSS", "JavaScript", "BeautifulSoup", "OpenCV", "Ultralytics"],
       github: "https://github.com/username/ecommerce-microservices",
       demo: null,
     },
@@ -119,7 +119,7 @@ export const skills = {
       title: "Inventory Management System",
       description:
         "A robust and user-friendly application designed to streamline product tracking, stock updates, and order management. It helps businesses maintain real-time inventory visibility, reduce overstocking or shortages, and improve overall supply chain efficiency.",
-      technologies: ["Python", "TensorFlow", "spaCy", "Flask", "PostgreSQL"],
+      technologies: ["Python", "JavaScript", "HTML", "CSS", "MySQL", "Flask"],
       github: "https://github.com/PraneshPK2005/Inventory_M_S",
       demo: null,
     },
@@ -135,37 +135,37 @@ export const skills = {
   export const modalData = {
     certificates: [
       {
-        title: "",
+        title: "Problem Solving through Programming in C",
         issuer: "NPTEL",
-        date: "2024",
+        date: "May 2023",
         description: "Strong foundation in C programming, emphasizing problem-solving, memory management, and logic building.",
         image: "/placeholder.svg?height=200&width=300&text=AWS+Cert",
       },
       {
         title: "Programming in JAVA",
         issuer: "NPTEL",
-        date: "2023",
+        date: "November 2023",
         description: "Proficient in core and advanced Java concepts, including OOP, exception handling, and multithreading, through NPTEL.",
         image: "/placeholder.svg?height=200&width=300&text=GCP+Cert",
       },
       {
         title: "Power BI and Tableau",
         issuer: "Immarticus Learning",
-        date: "2023",
+        date: "March 2024",
         description: "Certified in Power BI and Tableau, skilled at creating interactive dashboards and transforming data into actionable insights.",
         image: "/placeholder.svg?height=200&width=300&text=MongoDB+Cert",
       },
       {
         title: "Python for Data Science",
         issuer: "NPTEL",
-        date: "2023",
+        date: "April 2024",
         description: "Certified in Python for Data Science by NPTEL, with expertise in data manipulation and visualization.",
         image: "/placeholder.svg?height=200&width=300&text=Azure+Cert",
       },
       {
-        title: "Python for Computer Vision",
+        title: "Deep Learning for Computer Vision",
         issuer: "NPTEL",
-        date: "2022",
+        date: "November 2024",
         description: "NPTEL-certified in Deep Learning for Computer Vision, adept at designing and implementing neural network solutions for image analysis.",
         image: "/placeholder.svg?height=200&width=300&text=Docker+Cert",
       }
